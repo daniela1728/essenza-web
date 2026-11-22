@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ESSENZA — La esencia de ser único</title>
+<style>
+:root{--bg:#f5f1eb;--ink:#171717;--muted:#6e6a65;--accent:#c9b8a4;--line:#ded8d0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+header{position:sticky;top:0;z-index:5;background:rgba(245,241,235,.96);border-bottom:1px solid var(--line);padding:15px 5%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:25px;font-weight:900;letter-spacing:-2px}.logo span{font-weight:400}
+nav{display:flex;gap:18px;font-size:12px;text-transform:uppercase;letter-spacing:1px}a{color:inherit;text-decoration:none}
+.cartbtn{border:1px solid #222;background:transparent;border-radius:30px;padding:10px 14px;font-size:12px;cursor:pointer}
+.hero{padding:54px 5% 42px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;min-height:390px}
+.kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(48px,8vw,100px);line-height:.88;letter-spacing:-6px;margin:18px 0 22px;max-width:650px}
+.hero p{line-height:1.6;max-width:390px;color:#56514c;font-size:14px}
+.cta{display:inline-block;margin-top:12px;background:#171717;color:white;padding:14px 20px;border-radius:2px;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.heroart{min-height:290px;background:#d8cbbd;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.heroart:before{content:"ES";font-weight:900;font-size:clamp(100px,20vw,230px);letter-spacing:-18px;color:#f5f1eb;opacity:.9;transform:rotate(-10deg)}
+.heroart:after{content:"ESSENZA / DROP 01";position:absolute;bottom:18px;right:18px;font-size:10px;letter-spacing:2px}
+.section{padding:30px 5% 65px}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}
+h2{font-size:32px;letter-spacing:-1.5px;margin:8px 0}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.product{min-width:0}.visual{height:250px;background:#e5ded5;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.visual.dark{background:#242424}.visual.sand{background:#d3c2ae}.visual.grey{background:#c6c4c0}.visual.olive{background:#737363}
+.garment{width:58%;height:76%;position:relative;filter:drop-shadow(0 8px 5px #0002)}
+.hoodie{background:#202020;clip-path:polygon(27% 8%,39% 0,61% 0,73% 8%,100% 22%,86% 43%,76% 36%,79% 100%,21% 100%,24% 36%,14% 43%,0 22%);border-radius:12px}
+.tshirt{background:#f1eee8;clip-path:polygon(28% 8%,40% 0,60% 0,72% 8%,100% 23%,85% 43%,74% 35%,77% 100%,23% 100%,26% 35%,15% 43%,0 23%)}
+.pants{background:#262626;clip-path:polygon(15% 0,85% 0,80% 45%,72% 100%,52% 100%,48% 47%,43% 100%,22% 100%,18% 45%)}
+.jacket{background:#b8a18a;clip-path:polygon(28% 5%,40% 0,60% 0,72% 5%,100% 24%,82% 43%,73% 35%,78% 100%,22% 100%,27% 35%,18% 43%,0 24%)}
+.mark{position:absolute;top:48%;left:50%;transform:translate(-50%,-50%);font-size:22px;font-weight:900;letter-spacing:-3px;color:#f5f1eb}
+.product h3{font-size:13px;margin:12px 0 5px}.price{font-size:13px;color:var(--muted)}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
+select,.add{width:100%;padding:10px 8px;border:1px solid var(--line);background:#faf8f5;font-size:11px;border-radius:0}
+.add{background:#171717;color:white;border-color:#171717;cursor:pointer;grid-column:1/-1;text-transform:uppercase;letter-spacing:1px}
+.about{background:#e7dfd5;padding:45px 5%;display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}
+.about h2{font-size:clamp(30px,5vw,56px);line-height:1;margin:8px 0}.about p{font-size:14px;line-height:1.7;max-width:520px}
+footer{padding:28px 5%;background:#171717;color:#f5f1eb;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:11px;line-height:1.7}
+#cartpanel{display:none;position:fixed;z-index:10;right:12px;top:72px;width:min(360px,calc(100% - 24px));background:#fffdf9;border:1px solid var(--line);box-shadow:0 10px 40px #0002;padding:20px}
+#cartpanel.open{display:block}.cartrow{border-bottom:1px solid var(--line);padding:10px 0;font-size:13px;display:flex;justify-content:space-between;gap:12px}.close{float:right;background:none;border:0;font-size:20px;cursor:pointer}
+@media(max-width:750px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:38px}.heroart{min-height:220px}h1{letter-spacing:-3px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}.visual{height:210px}.about{grid-template-columns:1fr}.sectionhead{align-items:start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><a class="logo" href="#">ES<span>SENZA</span></a><nav><a href="#coleccion">Colección</a><a href="#marca">La marca</a><a href="#contacto">Contacto</a></nav><button class="cartbtn" onclick="toggleCart()">BOLSA (<span id="count">0</span>)</button></header>
+<main>
+<section class="hero"><div><div class="kicker">ESSENZA — DROP 01 / 2026</div><h1>VISTE<br>LO QUE<br>ERES.</h1><p>Streetwear contemporáneo para quienes hacen de su esencia su mejor declaración. Prendas cómodas, siluetas amplias y actitud propia.</p><a class="cta" href="#coleccion">Descubrir colección ↗</a></div><div class="heroart" aria-label="Gráfico de la marca ESSENZA"></div></section>
+<section class="section" id="coleccion"><div class="sectionhead"><div><div class="kicker">NUEVA TEMPORADA</div><h2>Drop 01: Sin filtros</h2></div><div class="kicker">DISEÑADO PARA TODOS LOS DÍAS</div></div>
+<div class="products" id="products"></div></section>
+<section class="about" id="marca"><div><div class="kicker">QUIÉNES SOMOS</div><h2>La esencia<br>de ser único.</h2></div><div><p>ESSENZA nace para vestir una forma de ser: libre, actual y sin necesidad de encajar. Creamos básicos con personalidad, volúmenes relajados y detalles que hablan por sí solos.</p><p><strong>Menos reglas. Más esencia.</strong></p></div></section>
+</main>
+<footer id="contacto"><div><strong>ESSENZA</strong><br>La esencia de ser único.</div><div>Calle Fuencarral, 45 · Madrid<br>info@essenza.es</div><div>© ESSENZA 2026 · Proyecto académico</div></footer>
+<div id="cartpanel"><button class="close" onclick="toggleCart()">×</button><h3>Tu bolsa</h3><div id="cartitems">Todavía no has añadido nada.</div><p id="total"><strong>Total: 0 €</strong></p><button class="add" onclick="alert('¡Gracias! Esta es una tienda de demostración para un proyecto académico; no se realizan pagos reales.')">Finalizar compra (demo)</button></div>
+<script>
+const items=[
+{name:"Hoodie Essential",price:49.90,shape:"hoodie",tone:"dark",desc:"Sudadera oversize"},
+{name:"Camiseta Core",price:24.90,shape:"tshirt",tone:"sand",desc:"Camiseta relaxed fit"},
+{name:"Pantalón Urban",price:39.90,shape:"pants",tone:"grey",desc:"Pantalón de corte amplio"},
+{name:"Hoodie Stone",price:54.90,shape:"hoodie",tone:"olive",desc:"Sudadera heavyweight"},
+{name:"Tee Signature",price:27.90,shape:"tshirt",tone:"grey",desc:"Algodón de tacto suave"},
+{name:"Chaqueta Studio",price:69.90,shape:"jacket",tone:"sand",desc:"Capa ligera urbana"},
+{name:"Pantalón Essential",price:42.90,shape:"pants",tone:"dark",desc:"Silueta relajada"},
+{name:"Hoodie Washed",price:59.90,shape:"hoodie",tone:"grey",desc:"Acabado efecto lavado"}
+];
+const cart=[];
+const products=document.getElementById('products');
+products.innerHTML=items.map((p,i)=>`<article class="product"><div class="visual ${p.tone}"><div class="garment ${p.shape}"><span class="mark">ES</span></div></div><h3>${p.name}</h3><div class="price">${p.price.toFixed(2).replace('.',',')} €</div><div class="controls"><select id="size${i}" aria-label="Talla ${p.name}"><option value="XS">XS</option><option value="S">S</option><option value="M" selected>M</option><option value="L">L</option><option value="XL">XL</option></select><select id="color${i}" aria-label="Color ${p.name}"><option>Negro</option><option>Beige</option><option>Gris</option><option>Oliva</option></select><button class="add" onclick="addCart(${i})">Añadir a la bolsa</button></div></article>`).join('');
+function addCart(i){cart.push({...items[i],size:document.getElementById('size'+i).value,color:document.getElementById('color'+i).value});document.getElementById('count').textContent=cart.length;renderCart();document.getElementById('cartpanel').classList.add('open')}
+function renderCart(){const c=document.getElementById('cartitems');c.innerHTML=cart.length?cart.map((p,i)=>`<div class="cartrow"><span>${p.name}<br><small>${p.size} · ${p.color}</small></span><span>${p.price.toFixed(2).replace('.',',')} € <button onclick="removeCart(${i})" aria-label="Eliminar">×</button></span></div>`).join(''):'Todavía no has añadido nada.';document.getElementById('total').innerHTML='<strong>Total: '+cart.reduce((s,p)=>s+p.price,0).toFixed(2).replace('.',',')+' €</strong>'}
+function removeCart(i){cart.splice(i,1);document.getElementById('count').textContent=cart.length;renderCart()}
+function toggleCart(){document.getElementById('cartpanel').classList.toggle('open')}
+</script></body></html>
